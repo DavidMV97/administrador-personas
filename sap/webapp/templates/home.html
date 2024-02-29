@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Sistema de administración de personas</h1>
+        
+        
+        <div class="mt-2 mb-3">
+            <a href="nueva_persona"  class="btn btn-success" >Agregar persona</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table mt-2">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for persona in personas %}
+                    <tr>
+                        <td>{{ persona.id }}</td>
+                        <td> {{ persona.nombre }} {{ persona.apeellido }} </td>
+                        <td>{{ persona.email }} </td>
+                        <td><a href="detalle_persona/{{ persona.id }}" class="btn btn-primary" > Ver </a></td>
+                        <td> <a href="editar_persona/{{ persona.id }}" class="btn btn-warning"> Editar </a></td>
+                        <td> <a href="eliminar_persona/{{ persona.id }}" class="btn btn-danger" > Eliminar </a></td>
+    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
