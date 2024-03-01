@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/app.js' %}"></script>
 </head>
 <body>
     <div class="container mt-4">
@@ -16,7 +17,7 @@
         <div class="mt-2 mb-3">
             <a href="nueva_persona"  class="btn btn-success" >Agregar persona</a>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive table-person">
             <table class="table mt-2">
                 <thead>
                     <tr>
@@ -34,7 +35,7 @@
                         <td>{{ persona.email }} </td>
                         <td><a href="detalle_persona/{{ persona.id }}" class="btn btn-primary" > Ver </a></td>
                         <td> <a href="editar_persona/{{ persona.id }}" class="btn btn-warning"> Editar </a></td>
-                        <td> <a href="eliminar_persona/{{ persona.id }}" class="btn btn-danger" > Eliminar </a></td>
+                        <td> <a data-id="{{ persona.id }}" href="eliminar_persona/{{ persona.id }}" class="btn btn-danger delete" > Eliminar </a></td>
     
                     </tr>
                     {% endfor %}
